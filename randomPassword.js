@@ -1,24 +1,28 @@
 function generate() {
     let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-    let passwordLength = document.getElementById("length").value
 
-    document.getElementById("password1").innerText = ""
-    document.getElementById("password2").innerText = ""
+    let passwordLength = Number(document.getElementById("length").value);
 
-    if (document.getElementById("includeSymbols").checked) {
-        characters += '!@#$%^&*()_+~`|}{[]:;?><,./-='
+    let includeSymbols = document.getElementById("includeSymbols").checked;
+    let includeNumbers = document.getElementById("includeNumbers").checked;
+
+    if (includeSymbols) {
+        characters += '!@#$%^&*()_+~`|}{[]:;?><,./-=';
     }
 
-    if (document.getElementById("includeNumbers").checked) {
-        characters += '0123456789'
+    if (includeNumbers) {
+        characters += '0123456789';
     }
+
+    document.getElementById("password1").innerText = "";
+    document.getElementById("password2").innerText = "";
 
     for (let i = 0; i < passwordLength; i++) {
-        let randomChar1 = Math.floor(Math.random() * characters.length)
-        let randomChar2 = Math.floor(Math.random() * characters.length)
-        
-        document.getElementById("password1").innerText += characters[randomChar1]
-        document.getElementById("password2").innerText += characters[randomChar2]
+        let randomChar1 = Math.floor(Math.random() * characters.length);
+        let randomChar2 = Math.floor(Math.random() * characters.length);
+
+        document.getElementById("password1").innerText += characters[randomChar1];
+        document.getElementById("password2").innerText += characters[randomChar2];
     }
 }
 

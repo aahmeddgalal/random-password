@@ -1,0 +1,192 @@
+/* This design is made with AI y'all */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+    --bg-gradient: linear-gradient(135deg, #090d16 0%, #111827 100%);
+    --card-bg: rgba(17, 24, 39, 0.7);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --text-primary: #f9fafb;
+    --text-secondary: #9ca3af;
+    --accent: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    --accent-hover: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --input-bg: rgba(31, 41, 55, 0.5);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+main {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 24px;
+    background: var(--accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Length Input styling */
+#length {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--input-bg);
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 20px;
+    transition: all 0.2s ease;
+}
+
+#length:focus {
+    border-color: #a855f7;
+    box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.2);
+}
+
+/* Custom checkbox wrapper logic via CSS layout */
+/* Since text and checkboxes are direct descendants of main, let's format body/main to structure checkboxes nicely */
+main {
+    gap: 12px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    user-select: none;
+    margin-bottom: 4px;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--text-secondary);
+    border-radius: 4px;
+    background: transparent;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+input[type="checkbox"]:checked {
+    background: #a855f7;
+    border-color: #a855f7;
+}
+
+input[type="checkbox"]:checked::after {
+    content: "✓";
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Style the button */
+#generate {
+    width: 100%;
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+}
+
+#generate:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(168, 85, 247, 0.4);
+}
+
+#generate:active {
+    transform: translateY(0);
+}
+
+/* Passwords Output */
+#password1,
+#password2 {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-break: break-all;
+    user-select: all;
+}
+
+#password1:hover,
+#password2:hover {
+    border-color: rgba(168, 85, 247, 0.4);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+#password1:active,
+#password2:active {
+    transform: scale(0.98);
+}
+
+#password1:empty::before,
+#password2:empty::before {
+    content: "Click Generate";
+    color: var(--text-secondary);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-style: italic;
+}
