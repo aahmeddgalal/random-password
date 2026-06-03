@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>randomPassword</title>
+    <style>
+        main {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #password1, #password2 {
+            margin-top: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <>
+        <h1>Random Password Generator</h1>
+        <input type="number" id="length" placeholder="Enter password length" min="1">
+        <input type="checkbox" id="includeSymbols"> Include Symbols
+        <input type="checkbox" id="includeNumbers"> Include Numbers
+        <button id="generate" onclick="generate()">Generate Password</button>
+
+        <div id="password1" onclick="copy('password1')"></div>
+        <div id="password2" onclick="copy('password2')"></div>
+        <script src="randomPassword.js"></script>
+    </main>
+</body>
+</html>
