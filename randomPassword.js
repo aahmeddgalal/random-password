@@ -26,6 +26,8 @@ function generate() {
     }
 }
 
+// im learning git and github so consider this a change
+
 function copy(id) {
     let text = document.getElementById(id).innerText;
     navigator.clipboard.writeText(text);
