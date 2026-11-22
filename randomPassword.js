@@ -27,6 +27,7 @@ function generate() {
 }
 
 // im learning git and github so consider this a change
+// today i explained this code to one of my friends
 
 function copy(id) {
     let text = document.getElementById(id).innerText;
